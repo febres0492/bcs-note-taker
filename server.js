@@ -1,18 +1,39 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs')
 
-const app = 
-const PORT = 3001;
+const app = express()
+let PORT = 5010
 
-// TODO: Invoke app.use() and serve static files from the '/public' folder
+app.use(express.static('public'))
 
-app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 
-app.get('/send', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/send.html'))
-);
+app.get('/notes', (req, res) =>{
+    console.log(`returning public/notes.html`)
+    res.sendFile(path.join(__dirname, 'public/notes.html'))
+});
 
-// TODO: Create a route that will serve up the `public/paths.html` page
+app.get('/api/notes', (req, res) => {
+    fs.readFile('./db/db.json', (err, data) => {
+        if (err) {
+            console.error("Error:", err)
+            return
+        }
+        console.log('returning /api/notes')
+        res.json(JSON.parse(data))
+    })
+})
+
+app.get('/paths', (req, res) => {
+    res.sendFile(path.join(__dirname, ))
+})
+
+app.post('/api/notes', (req, res) => {
+    console.log('res', req)
+    console.log('------------------------------------------------------------')
+    console.log('------------------------------------------------------------')
+})
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
