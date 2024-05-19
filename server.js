@@ -11,21 +11,28 @@ let PORT = 5010
 app.use(express.static('public'))
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 
-// done
+// sending notes.html
 app.get('/notes', (req, res) =>{
     console.log(`returning public/notes.html`)
     res.sendFile(path.join(__dirname, 'public/notes.html'))
 })
 
-// Done
+// sending notes in database
 app.get('/api/notes', (req, res) => {
+    console.log('returning /api/notes')
     fs.readFile('./db/db.json', (err, data) => {
         if (err) {
             console.error("Error:", err)
             return
         }
-        console.log('returning /api/notes')
-        res.json(JSON.parse(data))
+        // adding inndex id to notes
+        data = JSON.parse(data).reduce((acu, cur, i) => {
+            cur.id = i
+            console.log(acu)
+            return [...acu, cur]
+        },[])
+        console.log(data)
+        res.json(data)
     })
 })
 
