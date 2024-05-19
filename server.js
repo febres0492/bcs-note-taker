@@ -4,7 +4,8 @@ const fs = require('fs')
 
 const app = express()
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
+
 let PORT = 5010
 
 app.use(express.static('public'))
@@ -33,9 +34,17 @@ app.get('/paths', (req, res) => {
 })
 
 app.post('/api/notes', (req, res) => {
-    console.log('res', req.body)
-    console.log('------------------------------------------------------------')
-    console.log('------------------------------------------------------------')
+    console.log(`adding note`, req.body)
+    const db = require('./db/db.json')
+    db.push(req.body)
+    console.log('db',db)
+
+    // whiting to db.json
+    fs.writeFile('./db/db.json', JSON.stringify(db, null, 4), (err) => {
+        if (err) {
+            console.error("Error:", err)
+        }
+    })
 })
 
 app.listen(PORT, () =>
