@@ -3,17 +3,20 @@ const path = require('path');
 const fs = require('fs')
 
 const app = express()
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 let PORT = 5010
 
 app.use(express.static('public'))
-
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 
+// done
 app.get('/notes', (req, res) =>{
     console.log(`returning public/notes.html`)
     res.sendFile(path.join(__dirname, 'public/notes.html'))
-});
+})
 
+// Done
 app.get('/api/notes', (req, res) => {
     fs.readFile('./db/db.json', (err, data) => {
         if (err) {
@@ -30,7 +33,7 @@ app.get('/paths', (req, res) => {
 })
 
 app.post('/api/notes', (req, res) => {
-    console.log('res', req)
+    console.log('res', req.body)
     console.log('------------------------------------------------------------')
     console.log('------------------------------------------------------------')
 })
