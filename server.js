@@ -9,12 +9,12 @@ app.use(express.urlencoded({ extended: true }))
 const PORT = 5010
 
 app.use(express.static('public'))
+
+// home page
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')))
 
 // sending notes.html
-app.get('/notes', (req, res) =>{
-    res.sendFile(path.join(__dirname, 'public/notes.html'))
-})
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')) )
 
 // api for sending notes in database
 app.get('/api/notes', (req, res) => {
@@ -45,6 +45,9 @@ app.delete('/api/notes/:id', (req, res) =>{
         res.json(db)// sending updated db
     })
 })
+
+// Fallback route for when a user attempts to visit routes that don't exist
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')) )
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
