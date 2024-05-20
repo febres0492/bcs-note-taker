@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs')
+const U = require('./utils')
 
 const app = express()
 app.use(express.json());
@@ -20,37 +20,28 @@ app.get('/notes', (req, res) =>{
 // sending notes in database
 app.get('/api/notes', (req, res) => {
     console.log('returning /api/notes')
-    fs.readFile('./db/db.json', (err, data) => {
-        if (err) {
-            console.error("Error:", err)
-            return
-        }
-        // adding inndex id to notes
-        data = JSON.parse(data).reduce((acu, cur, i) => {
-            cur.id = i
-            console.log(acu)
-            return [...acu, cur]
-        },[])
-        console.log(data)
+    U.getNotes((err, data)=>{
+        if (err){ console.error(err); return}
         res.json(data)
     })
 })
 
-app.get('/paths', (req, res) => {
-    res.sendFile(path.join(__dirname, ))
-})
+// app.get('/paths', (req, res) => {
+//     res.sendFile(path.join(__dirname, ))
+// })
 
-app.post('/api/notes', (req, res) => {
-    console.log(`adding note`, req.body)
-    const db = require('./db/db.json')
-    db.push(req.body)
-    console.log('db',db)
+// adding note to DB and sending
+app.post('/api/notes', async (req, res) => {
+    U.getNotes((err, db)=>{
+        if (err){ console.error(err); return}
+        
+        // adding id to new note
+        const note = {...req.body, id: db.length}
+        db.push(note)
+        console.log('db',db)
+        U.writeToDB(db)
 
-    // whiting to db.json
-    fs.writeFile('./db/db.json', JSON.stringify(db, null, 4), (err) => {
-        if (err) {
-            console.error("Error:", err)
-        }
+        res.json(note)
     })
 })
 
