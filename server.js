@@ -18,15 +18,15 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.
 
 // api for sending notes in database
 app.get('/api/notes', (req, res) => {
-    U.getNotes((err, data)=>{
+    U.getDB((err, db)=>{
         if (err){ console.error(err); return}
-        res.json(data)
+        res.json(db)
     })
 })
 
 // api for adding notes to DB
 app.post('/api/notes', (req, res) => {
-    U.getNotes((err, db)=>{
+    U.getDB((err, db)=>{
         if (err){ console.error(err); return}
         const note = {...req.body, id: db.length}// adding id to new note
         db.push(note)
@@ -38,7 +38,7 @@ app.post('/api/notes', (req, res) => {
 // api to delete notes
 app.delete('/api/notes/:id', (req, res) =>{
     const id = req.params.id
-    U.getNotes((err, db)=>{
+    U.getDB((err, db)=>{
         if (err){ console.error(err); return}
         db = db.filter(note => note.id != id )// filterting out note
         U.writeToDB(db)// updating db

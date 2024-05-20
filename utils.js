@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-function getNotes(callback){
+function getDB(callback){
     fs.readFile('./db/db.json', (err, data) => {
         if (err) {
             console.error("Error:", err)
@@ -17,5 +17,5 @@ function writeToDB(data){
 }
 
 module.exports = {
-    getNotes, writeToDB
+    getDB, writeToDB
 }
