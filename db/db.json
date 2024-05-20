@@ -1,17 +1,17 @@
 [
     {
-        "title": "note 5",
+        "title": "note 1",
         "text": "test",
-        "id": 4
+        "id": 0
     },
     {
-        "title": "more",
-        "text": " notes",
+        "title": "note 2",
+        "text": "test",
+        "id": 1
+    },
+    {
+        "title": "note 3",
+        "text": "test",
         "id": 2
-    },
-    {
-        "title": "another",
-        "text": " note",
-        "id": 3
     }
 ]
