@@ -6,18 +6,16 @@ function getNotes(callback){
             console.error("Error:", err)
             return
         }
-        callback(null, JSON.parse(data));
+        callback(null, JSON.parse(data))
     })
 }
 
 function writeToDB(data){
     fs.writeFile('./db/db.json', JSON.stringify(data, null, 4), (err) => {
-        if (err) {
-            console.error("Error:", err)
-        }
+        if (err) { console.error("Error:", err) }
     })
 }
 
 module.exports = {
     getNotes, writeToDB
-};
+}
