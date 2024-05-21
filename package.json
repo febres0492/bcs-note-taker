@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nano-id": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
