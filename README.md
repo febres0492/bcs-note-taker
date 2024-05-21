@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License:-MIT-hsl(120,90%,30%)?labelColor=hsl(120,0%,20%)&style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License:-MIT-green?labelColor=hsl(120,0%,20%)&style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 
 # Bcs-Note-Taker
@@ -11,7 +11,7 @@
 
 This is a simple app to take notes
 
-[![License](https://img.shields.io/badge/go_to_live_app_>>-hsl(120,90%,20%)?&style=for-the-badge)](https://bcs-note-taker.onrender.com/)  
+[![License](https://img.shields.io/badge/go_to_live_app_>>-darkgreen?&style=for-the-badge)](https://bcs-note-taker.onrender.com/)  
 
 https://bcs-note-taker.onrender.com/
 
