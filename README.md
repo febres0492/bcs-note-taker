@@ -20,9 +20,8 @@ Application is live at: https://bcs-note-taker.onrender.com/notes
 - [Installation](#installation)
 - [Usage](#usage)
 - [Author](#author)
-- [Contribution](#contribution)
 - [Acknowledgments](#acknowledgments)
-- [Contribution Guidelines](#contribution-guidelines)
+- [Contribution](#contribution)
 - [Questions](#questions)
 - [License](#license)
 
