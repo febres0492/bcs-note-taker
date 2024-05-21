@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License:-MIT-green?labelColor=hsl(120,0%,20%)&style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License:-MIT-green?labelColor=grey&style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 
 # Bcs-Note-Taker
@@ -99,6 +99,6 @@ Email: Febres0492@gmail.com
 
 ## License
 
-[![License](https://img.shields.io/badge/License-MIT-hsl(120,90%,30%)?labelColor=hsl(120,0%,20%)&style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-MIT-green?labelColor=gray&style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) for details.
