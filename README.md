@@ -12,7 +12,9 @@
 
 This is a simple app to take notes
 
-Application is live at: https://bcs-note-taker.onrender.com/
+[![License](https://img.shields.io/badge/go_to_live_app_>>-hsl(120,90%,20%)?&style=for-the-badge)](https://bcs-note-taker.onrender.com/)  
+
+https://bcs-note-taker.onrender.com/
 
 <br>
 
