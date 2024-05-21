@@ -1,7 +1,6 @@
 [![License](https://img.shields.io/badge/License:-MIT-hsl(120,90%,30%)?labelColor=hsl(120,0%,20%)&style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 
-
 # Bcs-Note-Taker
 
 ![screenshot](screenshot.png)
