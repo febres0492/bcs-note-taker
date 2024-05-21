@@ -10,7 +10,7 @@
 
 This is a simple app to take notes
 
-Application is live at: https://bcs-note-taker.onrender.com/notes
+Application is live at: https://bcs-note-taker.onrender.com/
 
 <br>
 
